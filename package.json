@@ -1,0 +1,10 @@
+{
+  "name": "coopecaja-levantamiento-core",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Herramienta centralizada de levantamiento de requerimientos para el nuevo Core - COOPECAJA R.L.",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.0"
+  }
+}
