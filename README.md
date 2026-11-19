@@ -72,7 +72,9 @@ Para generar `SESSION_SECRET` puede usar: `node -e "console.log(require('crypto'
 ## Funcionamiento
 
 - **Sincronización:** cada navegador consulta los cambios cada 8 segundos (y al volver a la pestaña). Cada guardado fusiona solo los campos cambiados, con escrituras condicionales de Blobs, así que dos personas pueden editar campos distintos de un mismo formulario sin pisarse.
-- **Exportes:** Excel, Word y PDF del documento unificado o de un macroproceso; respaldo JSON completo (botón «Respaldo JSON» en la ventana de exportación).
+- **Reglas por requerimiento:** cada requerimiento tiene una sección «Reglas» para registrar campos obligatorios o condicionales, alertas, validaciones, cálculos, valores por defecto, restricciones, aprobaciones o notificaciones (elemento, tipo, condición, comportamiento esperado y motivo). Eliminar una regla pide la clave.
+- **Revisiones de IA guardadas:** cada revisión (en lote desde el catálogo o individual desde el requerimiento) se guarda en el requerimiento, con fecha, autor, severidad, hallazgos, cambios y reglas sugeridas, y la decisión tomada (aplicada, parcial, descartada). Se conservan las 10 más recientes por requerimiento y se muestran al final de su ficha.
+- **Exportar:** un solo botón con selección de formato: Excel, Word, PDF o respaldo JSON. Excel incluye hojas de Reglas y Revisiones IA.
 - **Migrar desde la versión en claude.ai:** en el artefacto, exporte → «Respaldo JSON». Aquí, «Importar» → elija el archivo `.json` y confirme con su clave.
 - **Importación de formularios Word:** igual que en la versión anterior. Solo completa campos vacíos, salvo que marque «Sobrescribir».
 

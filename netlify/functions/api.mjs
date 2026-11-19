@@ -44,7 +44,7 @@ function trunc(v) {
   if (isObj(v)) return '{…}';
   const s = String(v); return s.length > 300 ? s.slice(0, 297) + '…' : s;
 }
-function flatten(o, pre = '', out = []) { for (const k in o) { if (!pre && ['updatedAt', 'updatedBy', 'historial'].includes(k)) continue; const p = pre ? pre + '.' + k : k; if (isObj(o[k]) && Object.keys(o[k]).length) flatten(o[k], p, out); else out.push(p); } return out; }
+function flatten(o, pre = '', out = []) { for (const k in o) { if (!pre && ['updatedAt', 'updatedBy', 'historial', 'revisionesIA'].includes(k)) continue; const p = pre ? pre + '.' + k : k; if (isObj(o[k]) && Object.keys(o[k]).length) flatten(o[k], p, out); else out.push(p); } return out; }
 async function appendLog(st, entry) {
   entry.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   entry.ts = entry.ts || new Date().toISOString();

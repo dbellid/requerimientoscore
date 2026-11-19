@@ -144,36 +144,60 @@ td.acts-tools .btn.ghost{padding:2px 3px;font-size:10px}
 ul.hall{margin:4px 0 6px 18px;padding:0;font-size:13px}
 table.diff td.old{color:var(--mut);font-size:12.5px;max-width:380px}
 @media(max-width:900px){.aigrid{grid-template-columns:1fr 1fr}}
-#login{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:linear-gradient(135deg,#005cb9 0%,#00a8e3 100%)}
+#login{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:#fff}
 #login.show{display:flex}
-#login .box{background:#fff;border-radius:8px;width:min(400px,92vw);box-shadow:0 20px 50px rgba(0,0,0,.25);overflow:hidden}
-#login .bh{background:var(--blue);color:#fff;padding:20px 24px}
-#login .bh .org{font-size:12px;letter-spacing:1.5px;color:var(--yellow);font-weight:700}
-#login .bh h1{font-size:18px;margin:6px 0 0}
-#login form{padding:22px 24px}
+#login .lwrap{width:min(420px,92vw)}
+#login .lbrand{text-align:center;margin-bottom:22px}
+#login .lstripe{display:flex;justify-content:center;gap:4px;margin-bottom:14px}
+#login .lstripe i{display:block;width:34px;height:5px;border-radius:3px;background:var(--blue)}
+#login .lstripe i:nth-child(2){background:var(--sky)}#login .lstripe i:nth-child(3){background:var(--amber)}#login .lstripe i:nth-child(4){background:var(--yellow)}
+#login .lorg{font-size:30px;font-weight:700;color:var(--blue);letter-spacing:.3px}
+#login .lunit{font-size:15px;color:var(--sky);font-weight:700;margin-top:2px}
+#login .box{background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:8px;box-shadow:0 6px 24px rgba(0,92,185,.08);padding:22px 26px}
+#login h1{font-size:17px;margin:0;color:var(--ink)}
+#login .lsub{font-size:12.5px;color:var(--mut);margin:4px 0 18px}
 #login label{display:block;font-size:12px;font-weight:700;color:var(--blue);margin:0 0 4px}
 #login input{width:100%;border:1px solid var(--line);border-radius:4px;padding:10px;font-size:14px;margin-bottom:14px}
 #login input:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 2px rgba(0,168,227,.2)}
 #login button{width:100%;padding:11px;font-size:14px}
+#login .lfoot{text-align:center;font-size:11.5px;color:var(--mut);margin-top:14px}
 #lErr{color:#8a6d00;font-size:13px;min-height:18px;margin:0 0 10px}
 #app.locked{filter:blur(3px);pointer-events:none;user-select:none}
 .uchip{font-size:12px;background:rgba(255,255,255,.15);padding:4px 10px;border-radius:12px;white-space:nowrap}
+details.rgbox{border:1px solid var(--line);border-radius:5px;padding:8px 10px;margin:4px 0 12px;background:#fbfdff}
+details.rgbox>summary{cursor:pointer;font-weight:700;color:var(--blue);font-size:13px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+details.rgbox .cnt{background:var(--sky);color:#fff;border-radius:10px;padding:0 7px;font-size:11px}
+.regla{border:1px solid var(--line);border-left:3px solid var(--sky);border-radius:4px;padding:6px;margin:8px 0;background:#fff}
+.rg-h{display:flex;gap:6px;align-items:center}
+.rg-h input.in{flex:1;border-color:var(--line);font-weight:700}
+.rg-h select.rg-t{width:150px;border-color:var(--line)}
+.rg-b{display:grid;grid-template-columns:1fr;gap:2px;margin-top:4px}
+.rg-b textarea{font-size:12.5px}
+.rgsug{font-size:12.5px;border-bottom:1px dashed var(--line);padding:5px 0}
+.fmts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fmt{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:6px;padding:10px;cursor:pointer}
+.fmt:has(input:checked){border-color:var(--blue);background:#f0f6fc;box-shadow:inset 3px 0 0 var(--blue)}
+.fmt b{display:block;color:var(--blue)}
+.fg>label.chk{color:var(--ink);font-weight:400;font-size:13px;display:flex}
+.fmt small{display:block;color:var(--mut);font-size:11.5px;margin-top:2px}
 </style>
 </head>
 <body>
-<div id="login"><div class="box"><div class="bh"><div class="org">COOPECAJA R.L.</div><h1>Levantamiento de requerimientos · Nuevo Core</h1></div>
-<form id="loginForm" autocomplete="on"><label for="lUser">Usuario</label><input id="lUser" name="username" autocomplete="username" required>
-<label for="lPass">Clave</label><input id="lPass" name="password" type="password" autocomplete="current-password" required>
-<p id="lErr"></p><button class="btn" id="lGo" type="submit">Ingresar</button></form></div></div>
+<div id="login"><div class="lwrap">
+  <div class="lbrand"><div class="lstripe"><i></i><i></i><i></i><i></i></div><div class="lorg">Coopecaja</div><div class="lunit">Oficina de Proyectos</div></div>
+  <div class="box"><h1>Levantamiento de requerimientos</h1><p class="lsub">Nuevo Core · Catálogo centralizado por macroproceso</p>
+  <form id="loginForm" autocomplete="on"><label for="lUser">Usuario</label><input id="lUser" name="username" autocomplete="username" required>
+  <label for="lPass">Clave</label><input id="lPass" name="password" type="password" autocomplete="current-password" required>
+  <p id="lErr"></p><button class="btn" id="lGo" type="submit">Ingresar</button></form></div>
+  <p class="lfoot">Acceso restringido. Los ingresos y movimientos quedan registrados en la bitácora.</p>
+</div></div>
 <div id="app" class="locked">
 <header class="top">
   <div><h1>Levantamiento de requerimientos · Nuevo Core</h1><div class="sub">COOPECAJA R.L. · Catálogo centralizado por macroproceso</div></div>
   <div class="sp"></div>
   <div class="sync" id="sync"><span class="dot" id="syncDot"></span><span id="syncTxt">Conectando…</span></div>
   <button class="hbtn alt" id="bImport" title="Importar formularios Word completados o un respaldo JSON">Importar</button>
-  <button class="hbtn" data-exp="xlsx">Excel</button>
-  <button class="hbtn" data-exp="docx">Word</button>
-  <button class="hbtn" data-exp="pdf">PDF</button>
+  <button class="hbtn" data-exp="1" title="Exportar a Excel, Word, PDF o respaldo JSON">Exportar</button>
   <span class="uchip">Usuario: <b id="who"></b></span>
   <button class="hbtn alt" id="bLogout" title="Cerrar sesión">Salir</button>
 </header>
@@ -217,7 +241,7 @@ const GEN = [['responsable', 'Responsable del proceso'], ['fecha', 'Fecha de la 
 const APROB = [['resp', 'Responsable del proceso'], ['dueno', 'Dueño del proceso'], ['gbmServ', 'Responsable del servicio · GBM'], ['gbmPm', 'Gerente de proyecto · GBM']];
 const CODE_RE = /^[A-Za-z0-9][A-Za-z0-9._-]{0,19}$/;
 
-const S = { macro: {}, sub: {}, reqs: {}, log: null, lf: { from: '', to: '', user: '', action: '', q: '' }, view: 'tablero', curMacro: TEMPLATE[0].code, curSub: null, f: { macro: '', sub: '', tipo: '', prioridad: '', estado: '', q: '' }, fb: { macro: '', urg: '', link: '' }, canWrite: true, mode: 'init', me: null, names: {}, loaded: { macro: false, sub: false, reqs: false } };
+const S = { macro: {}, sub: {}, reqs: {}, log: null, lf: { from: '', to: '', user: '', action: '', q: '' }, view: 'tablero', curMacro: TEMPLATE[0].code, curSub: null, f: { macro: '', sub: '', tipo: '', prioridad: '', estado: '', reglas: '', ia: '', q: '' }, fb: { macro: '', urg: '', link: '' }, canWrite: true, mode: 'init', me: null, names: {}, loaded: { macro: false, sub: false, reqs: false } };
 let DL = null, SAMPLE = null;
 let STRUCT = [], MAP = {}, SUBMAP = {};
 
@@ -330,6 +354,7 @@ function queueWrite(coll, id, partial, opts = {}) {
   const k = coll + '/' + id;
   const q = Q[k] || (Q[k] = { coll, id, partial: null, timer: null, running: false });
   q.partial = q.partial ? deepMerge(q.partial, partial) : partial;
+  if (opts.desc) q.desc = q.desc && q.desc !== opts.desc ? q.desc + ' · ' + opts.desc : opts.desc;
   clearTimeout(q.timer);
   if (coll !== 'reqs') rebuild();
   updateSyncState();
@@ -337,12 +362,12 @@ function queueWrite(coll, id, partial, opts = {}) {
 }
 async function flush(k) {
   const q = Q[k]; if (!q || q.running || !q.partial || S.authLost) return;
-  const part = q.partial; q.partial = null; q.running = true; updateSyncState();
+  const part = q.partial; const desc = q.desc; q.partial = null; q.desc = null; q.running = true; updateSyncState();
   try {
-    const res = await api('write', { coll: q.coll, id: q.id, partial: part });
+    const res = await api('write', { coll: q.coll, id: q.id, partial: part, desc: desc || undefined });
     applyServerDoc(q.coll, q.id, res.doc);
   } catch (e) {
-    q.partial = q.partial ? deepMerge(part, q.partial) : part;
+    q.partial = q.partial ? deepMerge(part, q.partial) : part; if (desc) q.desc = q.desc ? desc + ' · ' + q.desc : desc;
     if (e.code === 'unauth') { /* se reintenta al volver a ingresar */ }
     else if (e.code === 'network' || (e.status >= 500)) { setTimeout(() => flush(k), 2500 + Math.random() * 2000); setSync('', 'Sin conexión · reintentando'); }
     else if (e.code === 'bad_password' || e.code === 'locked') toast(e.message);
@@ -610,12 +635,12 @@ function pillE(e) { if (!e) return ''; return `<span class="pill e-${e.split(' '
 function filtOpts(opts, v, all) { return `<option value="">${all}</option>` + opts.map(o => { const [val, l] = Array.isArray(o) ? o : [o, o]; return `<option value="${esc(val)}"${val === v ? ' selected' : ''}>${esc(l)}</option>`; }).join(''); }
 function filteredReqs() {
   const f = S.f, q = f.q.trim().toLowerCase();
-  return reqList().filter(r => (!f.macro || r.macro === f.macro) && (!f.sub || r.sub === f.sub) && (!f.tipo || r.tipo === f.tipo) && (!f.prioridad || r.prioridad === f.prioridad) && (!f.estado || r.estado === f.estado) && (!q || [r.code, r.titulo, r.descripcion, r.responsable, r.normativa, r.notas].join(' ').toLowerCase().includes(q)));
+  return reqList().filter(r => (!f.macro || r.macro === f.macro) && (!f.sub || r.sub === f.sub) && (!f.tipo || r.tipo === f.tipo) && (!f.prioridad || r.prioridad === f.prioridad) && (!f.estado || r.estado === f.estado) && (!f.reglas || (f.reglas === 'con' ? reglasList(r).length > 0 : reglasList(r).length === 0)) && (!f.ia || (f.ia === 'sin' ? !lastRev(r) : lastRev(r) && lastRev(r).estado === f.ia)) && (!q || [r.code, r.titulo, r.descripcion, r.responsable, r.normativa, r.notas, ...reglasList(r).map(g => g.elemento + ' ' + g.accion)].join(' ').toLowerCase().includes(q)));
 }
 function vCatalogo() {
   const f = S.f; const subs = f.macro && MAP[f.macro] ? MAP[f.macro].subprocesos : STRUCT.flatMap(m => m.subprocesos);
   const list = filteredReqs();
-  const rows = list.map(r => `<tr class="click" data-openreq="${esc(r._id)}"><td style="white-space:nowrap"><b style="color:var(--blue)">${esc(r.code)}</b></td><td title="${esc(mLabel(r.macro))}">${esc(r.macro)}</td><td title="${esc(sLabel(r.sub))}">${esc(r.sub)}</td><td><b>${esc(r.titulo || '(sin título)')}</b><div style="font-size:12px;color:var(--mut);max-width:520px">${esc((r.descripcion || '').slice(0, 160))}${(r.descripcion || '').length > 160 ? '…' : ''}</div></td><td>${esc(r.tipo)}</td><td>${r.prioridad ? `<span class="pill p-${r.prioridad}">${r.prioridad}</span>` : ''}</td><td>${esc(r.oblig || '')}</td><td>${pillE(r.estado)}</td><td style="font-size:12px;color:var(--mut)">${esc(r.responsable || '')}</td><td style="font-size:11px;color:var(--mut);white-space:nowrap">${r.updatedAt ? fmtDate(r.updatedAt) : ''}</td></tr>`).join('');
+  const rows = list.map(r => `<tr class="click" data-openreq="${esc(r._id)}"><td style="white-space:nowrap"><b style="color:var(--blue)">${esc(r.code)}</b></td><td title="${esc(mLabel(r.macro))}">${esc(r.macro)}</td><td title="${esc(sLabel(r.sub))}">${esc(r.sub)}</td><td><b>${esc(r.titulo || '(sin título)')}</b><div style="font-size:12px;color:var(--mut);max-width:520px">${esc((r.descripcion || '').slice(0, 160))}${(r.descripcion || '').length > 160 ? '…' : ''}</div></td><td>${esc(r.tipo)}</td><td>${r.prioridad ? `<span class="pill p-${r.prioridad}">${r.prioridad}</span>` : ''}</td><td>${esc(r.oblig || '')}</td><td>${pillE(r.estado)}</td><td style="text-align:center">${reglasList(r).length || ''}</td><td>${lastRev(r) ? `<span class="pill ${lastRev(r).sev === 'OK' ? 'e-Borrador' : 'p-' + lastRev(r).sev}" title="${esc(REV_EST[lastRev(r).estado])}">${lastRev(r).sev === 'OK' ? 'OK' : esc(lastRev(r).sev)}${lastRev(r).estado === 'pendiente' ? ' ·  pend.' : ''}</span>` : ''}</td><td style="font-size:12px;color:var(--mut)">${esc(r.responsable || '')}</td><td style="font-size:11px;color:var(--mut);white-space:nowrap">${r.updatedAt ? fmtDate(r.updatedAt) : ''}</td></tr>`).join('');
   return `<div class="card"><div class="row" style="justify-content:space-between;margin-bottom:10px"><h2 style="margin:0">Catálogo unificado de requerimientos</h2><div class="row">${aiBtn('data-aival="1"', '✦ Validar con IA')}${aiBtn('data-aigen=""', '✦ Generar desde transcripción')}<button class="btn" data-newreq="">+ Nuevo requerimiento</button></div></div>
    <div class="filters">
     <select data-f="macro">${filtOpts(STRUCT.map(m => [m.code, m.code + ' · ' + m.name]), f.macro, 'Todos los macroprocesos')}</select>
@@ -623,11 +648,13 @@ function vCatalogo() {
     <select data-f="tipo">${filtOpts(OPC.tipo, f.tipo, 'Todos los tipos')}</select>
     <select data-f="prioridad">${filtOpts(OPC.prioridad, f.prioridad, 'Toda prioridad')}</select>
     <select data-f="estado">${filtOpts(OPC.estado, f.estado, 'Todos los estados')}</select>
+    <select data-f="reglas">${filtOpts([['con', 'Con reglas'], ['sin', 'Sin reglas']], f.reglas, 'Con y sin reglas')}</select>
+    <select data-f="ia">${filtOpts([['sin', 'Sin revisar'], ['pendiente', 'Revisión pendiente de decisión'], ['aplicada', 'Revisión aplicada'], ['parcial', 'Aplicada parcialmente'], ['descartada', 'Revisión descartada'], ['ok', 'Sin observaciones']], f.ia, 'Revisión IA: todas')}</select>
     <input data-f="q" placeholder="Buscar por ID, texto, normativa…" value="${esc(f.q)}">
     <span style="align-self:center;font-size:12px;color:var(--mut)">${list.length} de ${Object.keys(S.reqs).length}</span>
    </div>
    <p class="hint">«Validar con IA» revisa los requerimientos visibles con los filtros actuales y propone mejoras; usted decide cuáles aplicar.</p>
-   <div style="overflow:auto"><table class="t"><thead><tr><th>ID</th><th>Macro</th><th>Sub</th><th>Requerimiento</th><th>Tipo</th><th>Prioridad</th><th>Obligatoriedad</th><th>Estado</th><th>Área dueña</th><th>Actualizado</th></tr></thead><tbody>${rows || `<tr><td colspan="10" class="empty">${Object.keys(S.reqs).length ? 'Ningún requerimiento coincide con los filtros.' : 'El catálogo está vacío. Cree requerimientos desde las brechas de cada formulario, con IA desde una transcripción o con «Nuevo requerimiento».'}</td></tr>`}</tbody></table></div></div>`;
+   <div style="overflow:auto"><table class="t"><thead><tr><th>ID</th><th>Macro</th><th>Sub</th><th>Requerimiento</th><th>Tipo</th><th>Prioridad</th><th>Obligatoriedad</th><th>Estado</th><th>Reglas</th><th>IA</th><th>Área dueña</th><th>Actualizado</th></tr></thead><tbody>${rows || `<tr><td colspan="12" class="empty">${Object.keys(S.reqs).length ? 'Ningún requerimiento coincide con los filtros.' : 'El catálogo está vacío. Cree requerimientos desde las brechas de cada formulario, con IA desde una transcripción o con «Nuevo requerimiento».'}</td></tr>`}</tbody></table></div></div>`;
 }
 
 /* ---------- Brechas consolidadas ---------- */
@@ -874,6 +901,7 @@ function renderDrawer() {
     <div class="meta" style="font-size:12px;color:var(--mut);margin-bottom:10px" data-meta="reqs/${esc(id)}">${esc(lastEdit(r))}</div>
     ${F('Título del requerimiento', ta('reqs', id, 'titulo', r.titulo, 'Enunciado corto y verificable'))}
     ${F('Descripción detallada', ta('reqs', id, 'descripcion', r.descripcion, 'El sistema debe…'))}
+    ${vReglas(id, r)}
     ${F('Macroproceso', sel('reqs', id, 'macro', r.macro, macroOpts(r.macro)))}
     ${F('Subproceso', sel('reqs', id, 'sub', r.sub, subOpts(r.macro, r.sub)))}
     <div class="g2">${F('Tipo', sel('reqs', id, 'tipo', r.tipo, OPC.tipo))}${F('Prioridad', sel('reqs', id, 'prioridad', r.prioridad, OPC.prioridad))}</div>
@@ -885,6 +913,7 @@ function renderDrawer() {
     ${F('Notas', ta('reqs', id, 'notas', r.notas))}
     <p class="hint">El ID no cambia si traslada el requerimiento a otro macroproceso o subproceso; el traslado queda en la bitácora.</p>
     <h3 style="font-size:13px;color:var(--blue);border-bottom:2px solid var(--sky);padding-bottom:4px">Bitácora</h3>${vHist(r)}
+    ${vRevision(id, r)}
   </div>
   <div class="df">${S.canWrite ? `<button class="btn sec" data-delreq="${esc(id)}">Eliminar</button>` : ''}<span style="flex:1"></span>${r.sub && SUBMAP[r.sub] ? `<button class="btn sec" data-s="${esc(r.sub)}" data-closeto="1">Ir al formulario ${esc(r.sub)}</button>` : ''}<button class="btn" data-close="1">Listo</button></div>`;
   autoGrowAll(d);
@@ -933,8 +962,9 @@ document.addEventListener('click', e => {
   const ds = t.dataset;
   if (t.id === 'ov') { if ($('#modal').classList.contains('show')) closeModal(); else closeDrawer(); return; }
   if (ds.mclose) { closeModal(); return; }
+  if ($('#drawer').contains(t) && drawerRevClick(t)) return;
   if (ds.close) { closeDrawer(); return; }
-  if (ds.exp) { openExport(ds.exp); return; }
+  if (ds.exp) { openExport(); return; }
   if (t.id === 'bImport') { if (!S.canWrite) { toast('Solo lectura: no puede importar.'); return; } $('#fileIn').value = ''; $('#fileIn').click(); return; }
   if (ds.newmacro) { structModal('macro', 'new'); return; }
   if (ds.editmacro) { structModal('macro', 'edit', ds.editmacro); return; }
@@ -982,33 +1012,44 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') { if ($('#mo
 
 /* ===================== Exportación: Excel, Word, PDF, JSON ===================== */
 const C = { blue: '005cb9', sky: '00a8e3', amber: 'fbba17', yellow: 'fbd900' };
-const FMT = { xlsx: 'Excel', docx: 'Word', pdf: 'PDF' };
-
-function openExport(fmt) {
-  const isDoc = fmt !== 'xlsx';
-  openModal(`<div class="mh">Exportar a ${FMT[fmt]}</div><div class="mb">
-    <div class="fg"><label>Alcance</label><select class="in" id="xScope" style="border:1px solid var(--line)"><option value="">Todos los macroprocesos (documento unificado)</option>${STRUCT.map(m => `<option value="${esc(m.code)}">${esc(m.code)}. ${esc(m.name)}</option>`).join('')}</select></div>
+const FMT = { xlsx: 'Excel', docx: 'Word', pdf: 'PDF', json: 'respaldo JSON' };
+const FMT_INFO = [['xlsx', 'Excel', 'Libro con una hoja por tema: requerimientos, reglas, revisiones de IA, brechas, paso a paso, riesgos…'], ['docx', 'Word', 'Documento unificado en horizontal, editable, para circular o anexar.'], ['pdf', 'PDF', 'Documento unificado de solo lectura, para firma o distribución.'], ['json', 'Respaldo JSON', 'Copia completa de los datos para respaldo o para restaurar con «Importar».']];
+function openExport(fmt = 'xlsx') {
+  openModal(`<div class="mh">Exportar</div><div class="mb">
+    <div class="fg"><label>Formato</label><div class="fmts">${FMT_INFO.map(([k, l, d]) => `<label class="fmt"><input type="radio" name="xFmt" value="${k}" ${k === fmt ? 'checked' : ''}><span><b>${l}</b><small>${d}</small></span></label>`).join('')}</div></div>
+    <div id="xOpts"></div>
+  </div><div class="mf"><button class="btn sec" data-mclose="1">Cancelar</button><button class="btn" id="xGo">Exportar</button></div>`);
+  const opts = f => {
+    if (f === 'json') return '<p class="hint">Incluye todos los macroprocesos, subprocesos, requerimientos, reglas y revisiones de IA. No incluye la bitácora; expórtela desde la pestaña Bitácora.</p>';
+    const isDoc = f !== 'xlsx';
+    return `<div class="fg"><label>Alcance</label><select class="in" id="xScope" style="border:1px solid var(--line)"><option value="">Todos los macroprocesos (documento unificado)</option>${STRUCT.map(m => `<option value="${esc(m.code)}">${esc(m.code)}. ${esc(m.name)}</option>`).join('')}</select></div>
     <div class="fg"><label>Contenido</label>
-      <label class="chk"><input type="checkbox" id="xReq" checked> Catálogo de requerimientos</label>
+      <label class="chk"><input type="checkbox" id="xReq" checked> Catálogo de requerimientos, con sus reglas</label>
+      <label class="chk"><input type="checkbox" id="xRev" checked> Revisiones de IA guardadas</label>
       <label class="chk"><input type="checkbox" id="xBre" checked> Brechas consolidadas</label>
       <label class="chk"><input type="checkbox" id="xDet" checked> Detalle de los formularios (As Is, paso a paso, marco, riesgos)</label>
-      ${isDoc ? '<label class="chk"><input type="checkbox" id="xOmit" checked> Omitir campos vacíos</label>' : ''}
-      ${isDoc ? '<label class="chk"><input type="checkbox" id="xDesc"> Excluir requerimientos «Descartado»</label>' : ''}
-    </div>
-    ${fmt === 'pdf' ? '<p class="hint">El PDF usa Helvetica, equivalente métrico de Arial disponible en el generador.</p>' : ''}
-  </div><div class="mf"><button class="btn sec" id="xJson" title="Copia completa de los datos para respaldo o restauración">Respaldo JSON</button><span style="flex:1"></span><button class="btn sec" data-mclose="1">Cancelar</button><button class="btn" id="xGo">Generar ${FMT[fmt]}</button></div>`);
-  $('#xJson').onclick = () => { closeModal(); exportJSON(); };
+      ${isDoc ? '<label class="chk"><input type="checkbox" id="xOmit" checked> Omitir campos vacíos</label><label class="chk"><input type="checkbox" id="xDesc"> Excluir requerimientos «Descartado»</label>' : ''}
+    </div>${f === 'pdf' ? '<p class="hint">El PDF usa Helvetica, equivalente métrico de Arial disponible en el generador.</p>' : ''}`;
+  };
+  const cur = () => ($('input[name="xFmt"]:checked') || {}).value || 'xlsx';
+  const upd = () => { $('#xOpts').innerHTML = opts(cur()); $('#xGo').textContent = 'Exportar ' + FMT[cur()]; };
+  $$('input[name="xFmt"]').forEach(r => r.onchange = upd); upd();
   $('#xGo').onclick = async () => {
-    const o = { scope: $('#xScope').value, req: $('#xReq').checked, bre: $('#xBre').checked, det: $('#xDet').checked, omit: isDoc ? $('#xOmit').checked : false, noDesc: isDoc ? $('#xDesc').checked : false };
+    const f = cur(); if (f === 'json') { closeModal(); exportJSON(); return; }
+    const isDoc = f !== 'xlsx';
+    const o = { scope: $('#xScope').value, req: $('#xReq').checked, rev: $('#xRev').checked, bre: $('#xBre').checked, det: $('#xDet').checked, omit: isDoc ? $('#xOmit').checked : false, noDesc: isDoc ? $('#xDesc').checked : false };
     const b = $('#xGo'); b.disabled = true; b.textContent = 'Generando…';
     try {
-      await loadLib(fmt);
-      const name = `Levantamiento_Requerimientos_${o.scope || 'Unificado'}_${stamp()}.${fmt}`;
-      const blob = fmt === 'xlsx' ? await buildXlsx(o) : fmt === 'docx' ? await buildDocx(o) : await buildPdf(o);
+      await loadLib(f);
+      const name = `Levantamiento_Requerimientos_${o.scope || 'Unificado'}_${stamp()}.${f}`;
+      const blob = f === 'xlsx' ? await buildXlsx(o) : f === 'docx' ? await buildDocx(o) : await buildPdf(o);
       closeModal(); await saveFile(name, blob);
-    } catch (e) { console.error(e); b.disabled = false; b.textContent = 'Generar ' + FMT[fmt]; toast('Error al generar: ' + (e.message || e)); }
+    } catch (e) { console.error(e); b.disabled = false; b.textContent = 'Exportar ' + FMT[f]; toast('Error al generar: ' + (e.message || e)); }
   };
 }
+function reglasRows(reqs) { const out = []; reqs.forEach(r => reglasList(r).forEach((g, i) => out.push({ code: r.code, macro: r.macro || '', sub: r.sub || '', titulo: r.titulo || '', n: i + 1, elemento: g.elemento || '', tipo: g.tipo || '', condicion: g.condicion || '', accion: g.accion || '', motivo: g.motivo || '' }))); return out; }
+function revTexto(rv) { if (!rv) return ''; const ks = Object.keys(rv.cambios || {}); return [rv.hallazgos.join(' · '), ks.length ? 'Cambios sugeridos: ' + ks.map(k => VFIELDS.find(f => f[0] === k)[1] + ' → ' + rv.cambios[k]).join(' | ') : '', (rv.reglasNuevas || []).length ? 'Reglas sugeridas: ' + rv.reglasNuevas.map(g => g.elemento + ' (' + g.tipo + ')').join('; ') : ''].filter(Boolean).join('\n'); }
+function revRows(reqs) { return reqs.filter(r => lastRev(r)).map(r => { const rv = lastRev(r); return { code: r.code, titulo: r.titulo || '', fecha: fmtDate(rv.at), por: rv.by || '', sev: rv.sev === 'OK' ? 'Sin observaciones' : rv.sev, estado: REV_EST[rv.estado] || rv.estado, decidido: rv.decididoAt ? fmtDate(rv.decididoAt) + (rv.decididoPor ? ' · ' + rv.decididoPor : '') : '', detalle: revTexto(rv), just: rv.just || '', n: (r.revisionesIA || []).length }; }); }
 
 /* ---------- Modelo común ---------- */
 function model(o) {
@@ -1044,9 +1085,11 @@ async function buildXlsx(o) {
   const res = sheet('Resumen', [['Código', 'code', 9], ['Macroproceso', 'name', 38], ['Responsable', 'responsable', 24], ['Subprocesos', 'subs', 12], ['Actividades', 'act', 12], ['Respondidas', 'done', 12], ['Avance %', 'pct', 10], ['Brechas', 'bre', 10], ['Riesgos', 'ries', 10], ['Requerimientos', 'req', 15]], M.resumen);
   res.getColumn('pct').eachCell((c, i) => { if (i > 1) c.numFmt = '0"%"'; });
   if (o.req) {
-    const ws = sheet('Requerimientos', [['ID', 'code', 22], ['Macroproceso', 'macro', 12], ['Nombre macroproceso', 'macroN', 26], ['Subproceso', 'sub', 11], ['Nombre subproceso', 'subN', 30], ['Título', 'titulo', 40], ['Descripción', 'descripcion', 60], ['Tipo', 'tipo', 18], ['Prioridad', 'prioridad', 10], ['Obligatoriedad', 'oblig', 14], ['Estado', 'estado', 16], ['Origen', 'origen', 12], ['Referencia de origen', 'origenTxt', 20], ['Área dueña', 'responsable', 22], ['Normativa', 'normativa', 22], ['Criterios de aceptación', 'criterio', 45], ['Notas', 'notas', 35], ['Bitácora', 'hist', 50], ['Última actualización', 'upd', 18]], M.reqs.map(r => ({ ...r, macroN: MAP[r.macro] ? MAP[r.macro].name : '', subN: SUBMAP[r.sub] ? SUBMAP[r.sub].name : '', hist: (r.historial || []).map(h => fmtDate(h.at) + ' · ' + h.texto).join('\n'), upd: r.updatedAt ? fmtDate(r.updatedAt) : '' })));
+    const ws = sheet('Requerimientos', [['ID', 'code', 22], ['Macroproceso', 'macro', 12], ['Nombre macroproceso', 'macroN', 26], ['Subproceso', 'sub', 11], ['Nombre subproceso', 'subN', 30], ['Título', 'titulo', 40], ['Descripción', 'descripcion', 60], ['Tipo', 'tipo', 18], ['Prioridad', 'prioridad', 10], ['Obligatoriedad', 'oblig', 14], ['Estado', 'estado', 16], ['Origen', 'origen', 12], ['Referencia de origen', 'origenTxt', 20], ['Área dueña', 'responsable', 22], ['Normativa', 'normativa', 22], ['Criterios de aceptación', 'criterio', 45], ['Notas', 'notas', 35], ['N.º reglas', 'nreg', 10], ['Revisión IA', 'revS', 18], ['Estado revisión', 'revE', 20], ['Bitácora', 'hist', 50], ['Última actualización', 'upd', 18]], M.reqs.map(r => ({ ...r, nreg: reglasList(r).length, revS: lastRev(r) ? (lastRev(r).sev === 'OK' ? 'Sin observaciones' : lastRev(r).sev) : '', revE: lastRev(r) ? REV_EST[lastRev(r).estado] : 'Sin revisar', macroN: MAP[r.macro] ? MAP[r.macro].name : '', subN: SUBMAP[r.sub] ? SUBMAP[r.sub].name : '', hist: (r.historial || []).map(h => fmtDate(h.at) + ' · ' + h.texto).join('\n'), upd: r.updatedAt ? fmtDate(r.updatedAt) : '' })));
     ws.getColumn('prioridad').eachCell((c, i) => { if (i > 1 && c.value === 'Alta') c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF' + C.amber } }; else if (i > 1 && c.value === 'Media') c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF' + C.yellow } }; });
   }
+  if (o.req) sheet('Reglas', [['ID requerimiento', 'code', 22], ['Macroproceso', 'macro', 12], ['Subproceso', 'sub', 11], ['Requerimiento', 'titulo', 36], ['N.º', 'n', 6], ['Elemento', 'elemento', 28], ['Tipo de regla', 'tipo', 16], ['Condición', 'condicion', 36], ['Comportamiento esperado', 'accion', 44], ['Motivo / fundamento', 'motivo', 40]], reglasRows(M.reqs));
+  if (o.rev) sheet('Revisiones IA', [['ID requerimiento', 'code', 22], ['Requerimiento', 'titulo', 36], ['Fecha de revisión', 'fecha', 18], ['Revisado por', 'por', 14], ['Severidad', 'sev', 16], ['Estado', 'estado', 20], ['Decisión', 'decidido', 22], ['Hallazgos y sugerencias', 'detalle', 70], ['Justificación', 'just', 45], ['N.º revisiones', 'n', 10]], revRows(M.reqs));
   if (o.bre) sheet('Brechas', [['Macroproceso', 'macro', 12], ['Subproceso', 'sub', 11], ['Ref', 'ref', 7], ['Brecha', 'brecha', 50], ['Qué debería hacer el nuevo Core', 'debe', 50], ['Efecto si no se resuelve', 'efecto', 40], ['Urgencia', 'urgencia', 10], ['Requerimiento vinculado', 'req', 22]], M.bre);
   if (o.det) {
     const pasos = [], subs = [], gen = [];
@@ -1105,8 +1148,11 @@ async function buildDocx(o) {
   if (o.req) {
     ch.push(H(`${n++}. Catálogo de requerimientos`, 1));
     if (!M.reqs.length) ch.push(P('No hay requerimientos registrados en el alcance seleccionado.', { italics: true }));
-    else ch.push(table(['ID', 'Sub', 'Requerimiento', 'Tipo', 'Prioridad', 'Oblig.', 'Estado', 'Área dueña'], M.reqs.map(r => [{ t: r.code, bold: true }, (r.sub || '') + (SUBMAP[r.sub] ? '\n' + SUBMAP[r.sub].name : ''), (r.titulo || '') + (r.descripcion ? '\n' + r.descripcion : '') + (r.criterio ? '\nCriterio de aceptación: ' + r.criterio : '') + (r.normativa ? '\nNormativa: ' + r.normativa : ''), r.tipo || '', urgCell(r.prioridad), r.oblig || '', r.estado || '', r.responsable || '']), [13, 12, 38, 10, 7, 7, 8, 9]));
+    else ch.push(table(['ID', 'Sub', 'Requerimiento', 'Tipo', 'Prioridad', 'Oblig.', 'Estado', 'Área dueña'], M.reqs.map(r => [{ t: r.code, bold: true }, (r.sub || '') + (SUBMAP[r.sub] ? '\n' + SUBMAP[r.sub].name : ''), (r.titulo || '') + (r.descripcion ? '\n' + r.descripcion : '') + (r.criterio ? '\nCriterio de aceptación: ' + r.criterio : '') + (r.normativa ? '\nNormativa: ' + r.normativa : '') + (reglasList(r).length ? '\nReglas: ' + reglasList(r).length : '') + (o.rev && lastRev(r) ? '\nRevisión IA: ' + (lastRev(r).sev === 'OK' ? 'sin observaciones' : 'severidad ' + lastRev(r).sev) + ' · ' + REV_EST[lastRev(r).estado] : ''), r.tipo || '', urgCell(r.prioridad), r.oblig || '', r.estado || '', r.responsable || '']), [13, 12, 38, 10, 7, 7, 8, 9]));
+    const RR = reglasRows(M.reqs);
+    if (RR.length) { ch.push(H(`${n++}. Reglas por requerimiento`, 1)); ch.push(table(['Requerimiento', 'N.º', 'Elemento', 'Tipo', 'Condición', 'Comportamiento esperado', 'Motivo / fundamento'], RR.map(x => [{ t: x.code, bold: true }, String(x.n), x.elemento, x.tipo, x.condicion, x.accion, x.motivo]), [13, 4, 15, 10, 18, 22, 18])); }
   }
+  if (o.rev) { const RV = revRows(M.reqs); if (RV.length) { ch.push(H(`${n++}. Revisiones de IA`, 1)); ch.push(P('Última revisión guardada de cada requerimiento. Las sugerencias son apoyo al análisis y solo se incorporan si un usuario las aplica.', { italics: true, size: 20 })); ch.push(table(['Requerimiento', 'Fecha', 'Severidad', 'Estado', 'Hallazgos y sugerencias'], RV.map(x => [{ t: x.code, bold: true }, x.fecha + (x.por ? '\n' + x.por : ''), x.sev === 'Alta' ? { t: x.sev, fill: C.amber } : x.sev === 'Media' ? { t: x.sev, fill: C.yellow } : x.sev, x.estado + (x.decidido ? '\n' + x.decidido : ''), x.detalle + (x.just ? '\n' + x.just : '')]), [13, 12, 9, 13, 53])); } }
   if (o.bre) {
     ch.push(H(`${n++}. Brechas consolidadas`, 1));
     if (!M.bre.length) ch.push(P('No hay brechas registradas en el alcance seleccionado.', { italics: true }));
@@ -1180,7 +1226,8 @@ async function buildPdf(o) {
   const tAct = M.resumen.reduce((a, r) => a + r.act, 0), tDone = M.resumen.reduce((a, r) => a + r.done, 0);
   text(`Alcance: ${M.macros.length} macroproceso(s) y ${M.macros.reduce((a, m) => a + m.subprocesos.length, 0)} subprocesos. Avance del As Is: ${tDone} de ${tAct} actividades descritas (${tAct ? Math.round(tDone * 100 / tAct) : 0} %). Brechas registradas: ${M.bre.length}. Riesgos identificados: ${M.ries.length}. Requerimientos en el catálogo: ${M.reqs.length}.`);
   tbl(['Código', 'Macroproceso', 'Responsable', 'Subprocesos', 'Actividades', 'Avance', 'Brechas', 'Riesgos', 'Reqs.'], M.resumen.map(r => [r.code, r.name, r.responsable, r.subs, `${r.done}/${r.act}`, r.pct + ' %', r.bre, r.ries, r.req]), [7, 28, 17, 9, 9, 8, 7, 7, 7]);
-  if (o.req) { H(`${n++}. Catálogo de requerimientos`, 1); if (!M.reqs.length) text('No hay requerimientos registrados en el alcance seleccionado.', 10, 'italic'); else tbl(['ID', 'Sub', 'Requerimiento', 'Tipo', 'Prioridad', 'Oblig.', 'Estado', 'Área dueña'], M.reqs.map(r => [r.code, (r.sub || '') + (SUBMAP[r.sub] ? '\n' + SUBMAP[r.sub].name : ''), (r.titulo || '') + (r.descripcion ? '\n' + r.descripcion : '') + (r.criterio ? '\nCriterio de aceptación: ' + r.criterio : '') + (r.normativa ? '\nNormativa: ' + r.normativa : ''), r.tipo || '', r.prioridad || '', r.oblig || '', r.estado || '', r.responsable || '']), [13, 12, 38, 10, 7, 7, 8, 9], 4); }
+  if (o.req) { H(`${n++}. Catálogo de requerimientos`, 1); if (!M.reqs.length) text('No hay requerimientos registrados en el alcance seleccionado.', 10, 'italic'); else tbl(['ID', 'Sub', 'Requerimiento', 'Tipo', 'Prioridad', 'Oblig.', 'Estado', 'Área dueña'], M.reqs.map(r => [r.code, (r.sub || '') + (SUBMAP[r.sub] ? '\n' + SUBMAP[r.sub].name : ''), (r.titulo || '') + (r.descripcion ? '\n' + r.descripcion : '') + (r.criterio ? '\nCriterio de aceptación: ' + r.criterio : '') + (r.normativa ? '\nNormativa: ' + r.normativa : ''), r.tipo || '', r.prioridad || '', r.oblig || '', r.estado || '', r.responsable || '']), [13, 12, 38, 10, 7, 7, 8, 9], 4); const RR = reglasRows(M.reqs); if (RR.length) { H(`${n++}. Reglas por requerimiento`, 1); tbl(['Requerimiento', 'N.º', 'Elemento', 'Tipo', 'Condición', 'Comportamiento esperado', 'Motivo / fundamento'], RR.map(x => [x.code, x.n, x.elemento, x.tipo, x.condicion, x.accion, x.motivo]), [13, 4, 15, 10, 18, 22, 18]); } }
+  if (o.rev) { const RV = revRows(M.reqs); if (RV.length) { H(`${n++}. Revisiones de IA`, 1); text('Última revisión guardada de cada requerimiento. Las sugerencias son apoyo al análisis y solo se incorporan si un usuario las aplica.', 9.5, 'italic'); tbl(['Requerimiento', 'Fecha', 'Severidad', 'Estado', 'Hallazgos y sugerencias'], RV.map(x => [x.code, x.fecha + (x.por ? '\n' + x.por : ''), x.sev, x.estado + (x.decidido ? '\n' + x.decidido : ''), x.detalle + (x.just ? '\n' + x.just : '')]), [13, 12, 9, 13, 53], 2); } }
   if (o.bre) { H(`${n++}. Brechas consolidadas`, 1); if (!M.bre.length) text('No hay brechas registradas en el alcance seleccionado.', 10, 'italic'); else tbl(['Macro', 'Sub', 'Ref', 'Brecha', 'Qué debería hacer el nuevo Core', 'Efecto si no se resuelve', 'Urgencia', 'Req.'], M.bre.map(b => [b.macro, b.sub, b.ref || '', b.brecha || '', b.debe || '', b.efecto || '', b.urgencia || '', b.req]), [6, 6, 4, 25, 25, 18, 7, 12], 6); }
   if (o.det) {
     H(`${n}. Detalle por macroproceso`, 1); let k = 1;
@@ -1415,10 +1462,11 @@ Reglas:
 - "criterio": criterio de aceptación concreto y medible.
 - "evidencia": paráfrasis breve (máx. 200 caracteres) de lo dicho en la sesión que sustenta el requerimiento.
 - "duplicado": código del requerimiento existente equivalente, o "".
+- "reglas": reglas que la sesión exprese para este requerimiento (campos obligatorios o condicionales, alertas, validaciones, cálculos, valores por defecto, restricciones, aprobaciones, notificaciones). Cada una: {"elemento":"","tipo":"${RTIPOS.join('|')}","condicion":"","accion":"","motivo":""}. Solo las que se mencionen o se deduzcan claramente; si no hay, [].
 - ${AI_PII}
 
 Formato de salida: SOLO líneas JSON (JSONL), un objeto por línea, en el orden en que aparecen en la sesión, sin texto adicional ni bloques de código:
-{"titulo":"","descripcion":"","macro":"","sub":"","tipo":"","prioridad":"","oblig":"","responsable":"","normativa":"","criterio":"","evidencia":"","duplicado":""}
+{"titulo":"","descripcion":"","macro":"","sub":"","tipo":"","prioridad":"","oblig":"","responsable":"","normativa":"","criterio":"","evidencia":"","duplicado":"","reglas":[]}
 
 Estructura de macroprocesos y subprocesos:
 ${structText(focus)}
@@ -1443,7 +1491,7 @@ async function runAIGen() {
   const lp = lineParser(o => {
     let macro = MAP[o.macro] ? o.macro : def.macro; let sub = o.sub && SUBMAP[o.sub] ? o.sub : (macro === def.macro ? def.sub : '');
     if (sub && SUBMAP[sub].macro !== macro) macro = SUBMAP[sub].macro;
-    const it = { titulo: String(o.titulo || '').slice(0, 200), descripcion: String(o.descripcion || ''), macro, sub, tipo: pick(o.tipo, OPC.tipo, 'Funcional'), prioridad: pick(o.prioridad, OPC.prioridad, 'Media'), oblig: pick(o.oblig, OPC.oblig, 'Obligatorio'), responsable: String(o.responsable || ''), normativa: String(o.normativa || ''), criterio: String(o.criterio || ''), evidencia: String(o.evidencia || ''), duplicado: S.reqs[o.duplicado] ? o.duplicado : '', sel: !S.reqs[o.duplicado], status: 'pend' };
+    const it = { titulo: String(o.titulo || '').slice(0, 200), descripcion: String(o.descripcion || ''), macro, sub, tipo: pick(o.tipo, OPC.tipo, 'Funcional'), prioridad: pick(o.prioridad, OPC.prioridad, 'Media'), oblig: pick(o.oblig, OPC.oblig, 'Obligatorio'), responsable: String(o.responsable || ''), normativa: String(o.normativa || ''), criterio: String(o.criterio || ''), evidencia: String(o.evidencia || ''), duplicado: S.reqs[o.duplicado] ? o.duplicado : '', reglas: (Array.isArray(o.reglas) ? o.reglas : []).filter(g => g && filled(g.elemento)).slice(0, 20).map(normRegla), sel: !S.reqs[o.duplicado], status: 'pend' };
     AIG.items.push(it); const i = AIG.items.length - 1;
     $('#agList').insertAdjacentHTML('beforeend', agCard(it, i)); autoGrowAll($(`#agList [data-card="${i}"]`));
     st.innerHTML = `<span class="spin"></span> ${AIG.items.length} requerimiento(s) identificados hasta ahora…`; agCount();
@@ -1468,7 +1516,8 @@ function agCard(it, i) {
     ${F('Macroproceso', SEL('macro', macroOpts(it.macro)), 2)}${F('Subproceso', SEL('sub', subOpts(it.macro, it.sub)), 2)}
     ${F('Tipo', SEL('tipo', OPC.tipo))}${F('Prioridad', SEL('prioridad', OPC.prioridad))}${F('Obligatoriedad', SEL('oblig', OPC.oblig))}${F('Área dueña', T('responsable'))}
     ${F('Criterio de aceptación', T('criterio'), 2)}${F('Normativa', T('normativa'), 2)}
-    ${F('Evidencia en la sesión', T('evidencia'), 4)}</div></div>`;
+    ${F('Evidencia en la sesión', T('evidencia'), 4)}</div>
+    ${it.reglas.length ? `<div style="margin-top:4px"><b style="font-size:12px;color:var(--blue)">Reglas detectadas (${it.reglas.length})</b>${it.reglas.map((g, j) => `<div class="rgsug"><b>${esc(g.elemento)}</b> <span class="pill e-Borrador">${esc(g.tipo)}</span>${g.condicion ? ` · <i>Si:</i> ${esc(g.condicion)}` : ''}${g.accion ? ` · ${esc(g.accion)}` : ''}${g.motivo ? `<div class="hm">${esc(g.motivo)}</div>` : ''}<button class="btn del" data-agrdel="${i}|${j}" title="Quitar regla" style="float:right">×</button></div>`).join('')}</div>` : ''}</div>`;
 }
 function agFieldEdit(e) {
   const el = e.target; const card = el.closest('[data-card]'); if (!card || !el.dataset.k) return; const i = +card.dataset.card; const it = AIG.items[i];
@@ -1480,13 +1529,14 @@ function agReplace(i) { const c = $(`#agList [data-card="${i}"]`); if (c) { c.ou
 async function agCreateOne(i) {
   const it = AIG.items[i]; if (it.status !== 'pend') return;
   const fecha = new Date().toLocaleDateString('es-CR');
-  const code = await createReq({ macro: it.macro, sub: it.sub, titulo: it.titulo, descripcion: it.descripcion, tipo: it.tipo, prioridad: it.prioridad, oblig: it.oblig, responsable: it.responsable, normativa: it.normativa, criterio: it.criterio, origen: 'Transcripción', origenTxt: 'Sesión analizada con IA · ' + fecha, notas: it.evidencia ? 'Evidencia en la sesión: ' + it.evidencia : '' }, false);
+  const code = await createReq({ macro: it.macro, sub: it.sub, titulo: it.titulo, descripcion: it.descripcion, tipo: it.tipo, prioridad: it.prioridad, oblig: it.oblig, responsable: it.responsable, normativa: it.normativa, criterio: it.criterio, origen: 'Transcripción', origenTxt: 'Sesión analizada con IA · ' + fecha, notas: it.evidencia ? 'Evidencia en la sesión: ' + it.evidencia : '', reglas: Object.fromEntries(it.reglas.map((g, j) => [uid('g'), { ...g, order: (j + 1) * 10 }])) }, false);
   if (code) { it.status = 'created'; it.code = code; agReplace(i); }
 }
 async function agClick(e) {
   const b = e.target.closest('button'); if (!b) return;
   if (b.dataset.agone !== undefined) { e.stopPropagation(); await agCreateOne(+b.dataset.agone); }
   if (b.dataset.agdisc !== undefined) { e.stopPropagation(); AIG.items[+b.dataset.agdisc].status = 'disc'; agReplace(+b.dataset.agdisc); }
+  if (b.dataset.agrdel) { e.stopPropagation(); const [ci, j] = b.dataset.agrdel.split('|').map(Number); AIG.items[ci].reglas.splice(j, 1); agReplace(ci); return; }
   if (b.dataset.agundo !== undefined) { e.stopPropagation(); AIG.items[+b.dataset.agundo].status = 'pend'; agReplace(+b.dataset.agundo); }
   if (b.dataset.openreq) { e.stopPropagation(); closeModal(); openReq(b.dataset.openreq); }
 }
@@ -1513,20 +1563,22 @@ function openAIVal() {
   </div><div class="mf"><label class="chk" style="margin:0"><input type="checkbox" id="avHide" ${AIV.hideOk ? 'checked' : ''}> Ocultar los que no tienen observaciones</label><span style="flex:1"></span><button class="btn sec" data-mclose="1">Cerrar</button><button class="btn sec" id="avStop" style="display:none">Detener</button><button class="btn ai" id="avGo">Iniciar validación</button></div>`, true);
   $('#avGo').onclick = runAIVal; $('#avStop').onclick = () => S.aiCtl && S.aiCtl.abort();
   $('#avHide').onchange = e => { AIV.hideOk = e.target.checked; avRenderAll(); };
-  $('#avList').addEventListener('click', avClick); $('#avList').addEventListener('input', e => { const el = e.target; const c = el.closest('[data-vcard]'); if (!c || !el.dataset.vf) return; const it = AIV.items[+c.dataset.vcard]; it.cambios[el.dataset.vf] = el.value; if (el.tagName === 'TEXTAREA') autoGrow(el); });
+  $('#avList').addEventListener('click', avClick); $('#avList').addEventListener('input', e => { if (e.target.tagName === 'TEXTAREA') autoGrow(e.target); });
 }
 function avPrompt(batch) {
   const all = reqList().slice(0, 600).map(r => `${r.code} | ${r.sub || '—'} | ${r.titulo}`).join('\n');
-  const data = batch.map(r => ({ code: r.code, macro: r.macro, sub: r.sub, titulo: r.titulo, descripcion: r.descripcion, tipo: r.tipo, prioridad: r.prioridad, oblig: r.oblig, normativa: r.normativa, criterio: r.criterio, responsable: r.responsable, estado: r.estado }));
+  const data = batch.map(r => ({ code: r.code, macro: r.macro, sub: r.sub, titulo: r.titulo, descripcion: r.descripcion, tipo: r.tipo, prioridad: r.prioridad, oblig: r.oblig, normativa: r.normativa, criterio: r.criterio, responsable: r.responsable, estado: r.estado, reglas: reglasList(r).map(g => ({ elemento: g.elemento, tipo: g.tipo, condicion: g.condicion, accion: g.accion, motivo: g.motivo })) }));
   return `${AI_CTX}
 Tarea: actúa como analista senior de requerimientos y revisa críticamente cada requerimiento del lote. Sé exigente y concreto: no valides por cortesía.
 
 Evalúa: claridad y ambigüedad (términos vagos como "rápido", "fácil", "adecuado"); atomicidad (si mezcla varias necesidades, dilo); verificabilidad y criterio de aceptación medible; coherencia de tipo, prioridad y obligatoriedad; duplicados o solapamientos con otros requerimientos (indica el código); ubicación en macroproceso y subproceso; normativa SUGEF/CONASSIF solo si es claramente pertinente, marcando "(verificar)".
 
+Revisa también sus "reglas" (campos obligatorios o condicionales, alertas, validaciones, cálculos, valores por defecto, restricciones, aprobaciones, notificaciones): que sean claras, coherentes con el requerimiento y verificables. Si al requerimiento le faltan reglas evidentes (por ejemplo, una transacción sin datos obligatorios), propónlas en "reglasNuevas"; no inventes datos específicos que no se deduzcan del texto y termina el motivo con " (sugerida; validar con el área)".
+
 Para cada requerimiento devuelve una línea JSON:
-{"code":"","severidad":"Alta|Media|Baja|OK","hallazgos":["…"],"cambios":{},"justificacion":""}
+{"code":"","severidad":"Alta|Media|Baja|OK","hallazgos":["…"],"cambios":{},"reglasNuevas":[{"elemento":"","tipo":"${RTIPOS.join('|')}","condicion":"","accion":"","motivo":""}],"justificacion":""}
 - "cambios": SOLO los campos que recomiendas modificar, con el valor nuevo completo. Campos posibles: titulo, descripcion, criterio, tipo (${OPC.tipo.join(' | ')}), prioridad (Alta | Media | Baja), oblig (Obligatorio | Deseable), normativa, responsable, macro, sub (códigos de la estructura).
-- Si está bien, severidad "OK", hallazgos [] y cambios {}.
+- Si está bien, severidad "OK", hallazgos [], cambios {} y reglasNuevas [].
 - Si conviene dividirlo, indícalo en hallazgos y propone en "descripcion" la parte principal.
 - ${AI_PII}
 
@@ -1550,17 +1602,9 @@ async function runAIVal() {
     st.innerHTML = `<span class="spin"></span> Lote ${b + 1} de ${nb}: analizando ${batch.length} requerimiento(s)…`;
     const lp = lineParser(o => {
       if (!codes.has(o.code) || !S.reqs[o.code]) return; codes.delete(o.code);
-      const r = S.reqs[o.code]; const cambios = {}; const sel = {};
-      Object.entries(o.cambios || {}).forEach(([k, v]) => {
-        if (!VFIELDS.some(f => f[0] === k)) return; v = String(v ?? '');
-        if (k === 'tipo' && !OPC.tipo.includes(v)) return; if (k === 'prioridad' && !OPC.prioridad.includes(v)) return; if (k === 'oblig' && !OPC.oblig.includes(v)) return;
-        if (k === 'macro' && !MAP[v]) return; if (k === 'sub' && !SUBMAP[v]) return;
-        if (v === String(r[k] ?? '')) return; cambios[k] = v; sel[k] = true;
-      });
-      if (cambios.sub && !cambios.macro && SUBMAP[cambios.sub].macro !== r.macro) { cambios.macro = SUBMAP[cambios.sub].macro; sel.macro = true; }
-      const sev = ['Alta', 'Media', 'Baja', 'OK'].includes(o.severidad) ? o.severidad : (Object.keys(cambios).length ? 'Media' : 'OK');
-      AIV.items.push({ code: o.code, sev, hallazgos: (o.hallazgos || []).map(String).slice(0, 8), cambios, sel, just: String(o.justificacion || ''), status: 'pend' });
-      const i = AIV.items.length - 1; if (!(AIV.hideOk && sev === 'OK')) { $('#avList').insertAdjacentHTML('beforeend', avCard(AIV.items[i], i)); autoGrowAll($(`#avList [data-vcard="${i}"]`)); }
+      const rv = buildReview(o, S.reqs[o.code]); saveReview(o.code, rv);
+      AIV.items.push({ code: o.code, revId: rv.id, sev: rv.sev });
+      const i = AIV.items.length - 1; if (!(AIV.hideOk && rv.sev === 'OK')) { $('#avList').insertAdjacentHTML('beforeend', avCard(AIV.items[i], i)); autoGrowAll($(`#avList [data-vcard="${i}"]`)); }
       avSummary();
     });
     try { await SAMPLE(avPrompt(batch), { onText: lp.push, signal: ctl.signal, modelTier: 'default', cache: false }); lp.end(); }
@@ -1571,36 +1615,27 @@ async function runAIVal() {
   st.textContent = err ? aiErr(err) + (AIV.items.length ? ` Se conservan ${AIV.items.length} revisiones.` : '') : `Validación terminada: ${AIV.items.length} de ${list.length} requerimiento(s) revisados.`;
   $('#avGo').style.display = ''; $('#avGo').textContent = 'Validar de nuevo'; $('#avStop').style.display = 'none'; avSummary();
 }
-function avSummary() { const c = s => AIV.items.filter(x => x.sev === s).length; const el = $('#avSum'); if (el) el.innerHTML = AIV.items.length ? `<div class="row" style="margin:6px 0 10px"><span class="pill p-Alta">Alta: ${c('Alta')}</span><span class="pill p-Media">Media: ${c('Media')}</span><span class="pill p-Baja">Baja: ${c('Baja')}</span><span class="pill e-Borrador">Sin observaciones: ${c('OK')}</span><span style="font-size:12px;color:var(--mut)">${AIV.items.filter(x => x.status === 'applied').length} aplicadas · ${AIV.items.filter(x => x.status === 'disc').length} descartadas</span></div>` : ''; }
+function itRev(it) { const r = S.reqs[it.code]; return r && (r.revisionesIA || []).find(x => x.id === it.revId); }
+function avSummary() { const c = s => AIV.items.filter(x => x.sev === s).length; const st = e => AIV.items.filter(x => { const v = itRev(x); return v && v.estado === e; }).length; const el = $('#avSum'); if (el) el.innerHTML = AIV.items.length ? `<div class="row" style="margin:6px 0 10px"><span class="pill p-Alta">Alta: ${c('Alta')}</span><span class="pill p-Media">Media: ${c('Media')}</span><span class="pill p-Baja">Baja: ${c('Baja')}</span><span class="pill e-Borrador">Sin observaciones: ${c('OK')}</span><span style="font-size:12px;color:var(--mut)">${st('aplicada') + st('parcial')} aplicadas · ${st('descartada')} descartadas · las revisiones quedan guardadas en cada requerimiento</span></div>` : ''; }
 function avRenderAll() { const l = $('#avList'); if (!l) return; l.innerHTML = AIV.items.map((it, i) => (AIV.hideOk && it.sev === 'OK') ? '' : avCard(it, i)).join(''); autoGrowAll(l); }
 function avCard(it, i) {
-  const r = S.reqs[it.code] || {}; const ks = Object.keys(it.cambios);
-  const disp = (k, v) => k === 'macro' ? mLabel(v) : k === 'sub' ? sLabel(v) : v;
-  const head = `<div class="row" style="margin-bottom:6px"><span class="pill ${it.sev === 'OK' ? 'e-Borrador' : 'p-' + it.sev}">${it.sev === 'OK' ? 'OK' : 'Severidad ' + it.sev}</span><b style="color:var(--blue)">${esc(it.code)}</b><span>${esc(r.titulo || '')}</span><span style="flex:1"></span>${it.status === 'pend' && ks.length ? `<button class="btn sm" data-avapply="${i}">Aplicar seleccionados</button><button class="btn ghost sm" data-avdisc="${i}">Descartar</button>` : ''}${it.status === 'applied' ? '<span class="pill e-Aprobado">Aplicada</span>' : ''}${it.status === 'disc' ? `<span class="pill e-Descartado">Descartada</span><button class="btn ghost sm" data-avundo="${i}">Recuperar</button>` : ''}<button class="btn ghost sm" data-openreq="${esc(it.code)}">Abrir</button></div>`;
-  const hall = it.hallazgos.length ? `<ul class="hall">${it.hallazgos.map(h => `<li>${esc(h)}</li>`).join('')}</ul>` : '';
-  const just = it.just ? `<p class="hint" style="font-style:normal">${esc(it.just)}</p>` : '';
-  const tbl = ks.length && it.status === 'pend' ? `<table class="t diff"><thead><tr><th style="width:30px"></th><th style="width:130px">Campo</th><th>Actual</th><th>Sugerido (editable)</th></tr></thead><tbody>${ks.map(k => `<tr><td><input type="checkbox" data-avsel="${k}" ${it.sel[k] ? 'checked' : ''}></td><td><b>${esc(VFIELDS.find(f => f[0] === k)[1])}</b></td><td class="old">${esc(disp(k, r[k] || '')) || '<i>vacío</i>'}</td><td>${['macro', 'sub', 'tipo', 'prioridad', 'oblig'].includes(k) ? `<b>${esc(disp(k, it.cambios[k]))}</b>` : `<textarea data-vf="${k}" style="border:1px solid var(--line);background:#fff">${esc(it.cambios[k])}</textarea>`}</td></tr>`).join('')}</tbody></table>` : '';
-  return `<div class="aicard ${it.status !== 'pend' ? 'done' : ''}" data-vcard="${i}">${head}${hall}${just}${tbl}</div>`;
+  const r = S.reqs[it.code] || {}; const rv = itRev(it);
+  if (!rv) return `<div class="aicard done" data-vcard="${i}"><b>${esc(it.code)}</b> · revisión no disponible</div>`;
+  const pend = rv.estado === 'pendiente';
+  const head = `<div class="row" style="margin-bottom:6px">${sevPill(rv.sev)}${rv.estado !== 'pendiente' ? estPill(rv.estado) : ''}<b style="color:var(--blue)">${esc(it.code)}</b><span>${esc(r.titulo || '')}</span><span style="flex:1"></span>${pend ? `<button class="btn sm" data-avapply="${i}">Aplicar seleccionados</button><button class="btn ghost sm" data-avdisc="${i}">Descartar</button>` : ''}${rv.estado === 'descartada' ? `<button class="btn ghost sm" data-avundo="${i}">Reabrir</button>` : ''}<button class="btn ghost sm" data-openreq="${esc(it.code)}">Abrir</button></div>`;
+  const hall = rv.hallazgos.length ? `<ul class="hall">${rv.hallazgos.map(h => `<li>${esc(h)}</li>`).join('')}</ul>` : '';
+  const just = rv.just ? `<p class="hint" style="font-style:normal">${esc(rv.just)}</p>` : '';
+  return `<div class="aicard ${pend ? '' : 'done'}" data-vcard="${i}">${head}${hall}${just}<div data-revbox="${esc(rv.id)}">${revDiff(it.code, rv, true)}</div></div>`;
 }
 function avClick(e) {
   const el = e.target; const c = el.closest('[data-vcard]'); if (!c) return; const i = +c.dataset.vcard; const it = AIV.items[i];
-  if (el.dataset.avsel) { it.sel[el.dataset.avsel] = el.checked; return; }
   const b = el.closest('button'); if (!b) return;
   if (b.dataset.openreq) { e.stopPropagation(); closeModal(); openReq(b.dataset.openreq); return; }
-  if (b.dataset.avdisc !== undefined) { e.stopPropagation(); it.status = 'disc'; avRefresh(i); return; }
-  if (b.dataset.avundo !== undefined) { e.stopPropagation(); it.status = 'pend'; avRefresh(i); return; }
-  if (b.dataset.avapply !== undefined) { e.stopPropagation(); avApply(i); }
+  if (b.dataset.avdisc !== undefined) { e.stopPropagation(); discardRev(it.code, it.revId); avRefresh(i); return; }
+  if (b.dataset.avundo !== undefined) { e.stopPropagation(); undoDiscard(it.code, it.revId); avRefresh(i); return; }
+  if (b.dataset.avapply !== undefined) { e.stopPropagation(); const s = revSelection(c); if (applyRev(it.code, it.revId, s.keys, s.reglas, s.overrides)) { avRefresh(i); toast(`${it.code}: cambios aplicados.`); } }
 }
 function avRefresh(i) { const c = $(`#avList [data-vcard="${i}"]`); if (c) { c.outerHTML = avCard(AIV.items[i], i); autoGrowAll($(`#avList [data-vcard="${i}"]`)); } avSummary(); }
-function avApply(i) {
-  const it = AIV.items[i]; const r = S.reqs[it.code]; if (!r) { toast('El requerimiento ya no existe.'); return; }
-  const ks = Object.keys(it.cambios).filter(k => it.sel[k]); if (!ks.length) { toast('Seleccione al menos un cambio.'); return; }
-  const partial = {}; ks.filter(k => k !== 'macro' && k !== 'sub').forEach(k => partial[k] = it.cambios[k]);
-  const names = ks.map(k => VFIELDS.find(f => f[0] === k)[1]).join(', ');
-  if (Object.keys(partial).length) { partial.historial = [...clone(r.historial || []), { at: nowIso(), by: S.me || '', tipo: 'ia', texto: `Recomendación de IA aplicada (severidad ${it.sev}): ${names}` }]; queueWrite('reqs', it.code, partial, { now: true }); }
-  if (ks.includes('macro') || ks.includes('sub')) moveReq(it.code, 'both', { macro: ks.includes('macro') ? it.cambios.macro : r.macro, sub: ks.includes('sub') ? it.cambios.sub : (ks.includes('macro') ? '' : r.sub) }, 'por recomendación de IA');
-  it.status = 'applied'; avRefresh(i); toast(`${it.code}: cambios aplicados.`);
-}
 
 /* ---------- Cliente de IA: Edge Function /api/ai (streaming) ---------- */
 async function aiSample(prompt, opts = {}) {
@@ -1625,6 +1660,132 @@ async function aiSample(prompt, opts = {}) {
   if (m.error) throw { code: 'upstream_error', text, message: m.error };
   if (!text.trim()) throw { code: 'empty_completion' };
   return { text, truncated: m.stop === 'max_tokens' };
+}
+
+/* ===================== Reglas por requerimiento y revisiones de IA guardadas ===================== */
+const RTIPOS = ['Obligatorio', 'Condicional', 'Alerta', 'Validación', 'Cálculo', 'Valor por defecto', 'Restricción', 'Aprobación', 'Notificación', 'Otro'];
+const REV_EST = { pendiente: 'Pendiente de decisión', aplicada: 'Aplicada', parcial: 'Aplicada parcialmente', descartada: 'Descartada', ok: 'Sin observaciones' };
+function reglasList(r) { return listOf(r && r.reglas); }
+function elementosUsados() { const s = new Set(); Object.values(S.reqs).forEach(r => reglasList(r).forEach(x => { if (filled(x.elemento)) s.add(x.elemento.trim()); })); return [...s].sort(natCmp); }
+function lastRev(r) { return (r && r.revisionesIA && r.revisionesIA[0]) || null; }
+
+/* ---------- Vista de reglas en el panel del requerimiento ---------- */
+function vReglas(id, r) {
+  const rs = reglasList(r);
+  const rows = rs.map((x, i) => `<div class="regla" data-rgid="${esc(x.id)}">
+    <div class="rg-h"><span class="num">${i + 1}</span><input class="in" list="dlElem" data-c="reqs" data-id="${esc(id)}" data-p="reglas.${x.id}.elemento" value="${esc(x.elemento)}" placeholder="Elemento: campo, dato, documento u objeto">${sel('reqs', id, 'reglas.' + x.id + '.tipo', x.tipo, RTIPOS, 'in rg-t')}${S.canWrite ? `<button class="btn del" data-delregla="${esc(x.id)}" title="Eliminar regla">×</button>` : ''}</div>
+    <div class="rg-b">${ta('reqs', id, 'reglas.' + x.id + '.condicion', x.condicion, 'Condición: cuándo aplica (vacío = siempre)')}${ta('reqs', id, 'reglas.' + x.id + '.accion', x.accion, 'Comportamiento esperado del sistema')}${ta('reqs', id, 'reglas.' + x.id + '.motivo', x.motivo, 'Motivo o fundamento: operativo, normativo o de control')}</div></div>`).join('');
+  return `<details class="rgbox" open><summary>Reglas del requerimiento <span class="cnt">${rs.length}</span></summary>
+    <p class="hint">Reglas que el Core debe cumplir para este requerimiento: campos obligatorios o condicionales, alertas, validaciones, cálculos, valores por defecto, restricciones, aprobaciones o notificaciones. Use el mismo nombre de elemento cuando se repita en otros requerimientos; el sistema sugiere los ya usados.</p>
+    ${rows}<datalist id="dlElem">${elementosUsados().map(e => `<option value="${esc(e)}">`).join('')}</datalist>
+    ${S.canWrite ? '<button class="btn sec sm" data-addregla="1">+ Agregar regla</button>' : ''}</details>`;
+}
+function addRegla(id) {
+  const rs = reglasList(S.reqs[id]); const rid = uid('g');
+  queueWrite('reqs', id, { reglas: { [rid]: { elemento: '', tipo: 'Obligatorio', condicion: '', accion: '', motivo: '', order: rs.reduce((a, x) => Math.max(a, x.order || 0), 0) + 10 } } }, { now: true });
+  renderDrawer(); const el = $(`[data-rgid="${rid}"] input`); if (el) el.focus();
+}
+function delRegla(id, rid) {
+  const x = ((S.reqs[id] || {}).reglas || {})[rid] || {};
+  confirmPwd('¿Eliminar esta regla?', filled(x.elemento) ? `«${x.elemento}» · ${x.tipo || ''}` : 'Regla sin elemento definido.', async pwd => {
+    await writeNow('reqs', id, { reglas: { [rid]: { deleted: true } } }, { password: pwd, desc: `Eliminó la regla «${x.elemento || 'sin elemento'}» (${x.tipo || ''}) del requerimiento ${id}` });
+    renderDrawer(); toast('Regla eliminada.');
+  });
+}
+
+/* ---------- Revisión de IA: construir, guardar, aplicar ---------- */
+function normRegla(g) { return { elemento: String(g.elemento || '').slice(0, 200), tipo: RTIPOS.includes(g.tipo) ? g.tipo : 'Otro', condicion: String(g.condicion || ''), accion: String(g.accion || ''), motivo: String(g.motivo || '') }; }
+function buildReview(o, r) {
+  const cambios = {};
+  Object.entries(o.cambios || {}).forEach(([k, v]) => {
+    if (!VFIELDS.some(f => f[0] === k)) return; v = String(v ?? '');
+    if (k === 'tipo' && !OPC.tipo.includes(v)) return; if (k === 'prioridad' && !OPC.prioridad.includes(v)) return; if (k === 'oblig' && !OPC.oblig.includes(v)) return;
+    if (k === 'macro' && !MAP[v]) return; if (k === 'sub' && !SUBMAP[v]) return;
+    if (v === String(r[k] ?? '')) return; cambios[k] = v;
+  });
+  if (cambios.sub && !cambios.macro && SUBMAP[cambios.sub].macro !== r.macro) cambios.macro = SUBMAP[cambios.sub].macro;
+  const reglasNuevas = (Array.isArray(o.reglasNuevas) ? o.reglasNuevas : []).filter(g => g && filled(g.elemento)).slice(0, 15).map(normRegla);
+  const sev = ['Alta', 'Media', 'Baja', 'OK'].includes(o.severidad) ? o.severidad : ((Object.keys(cambios).length || reglasNuevas.length) ? 'Media' : 'OK');
+  const hasSug = Object.keys(cambios).length > 0 || reglasNuevas.length > 0;
+  const antes = Object.fromEntries(Object.keys(cambios).map(k => [k, String(r[k] ?? '')]));
+  return { id: uid('v'), at: nowIso(), by: S.me || '', antes, sev, hallazgos: (o.hallazgos || []).map(String).slice(0, 10), just: String(o.justificacion || ''), cambios, reglasNuevas, estado: hasSug ? 'pendiente' : 'ok', aplicados: [], reglasAplicadas: [] };
+}
+function saveReview(code, rev) {
+  const r = S.reqs[code]; if (!r) return;
+  const revs = [rev, ...clone(r.revisionesIA || [])].slice(0, 10);
+  queueWrite('reqs', code, { revisionesIA: revs }, { now: true, desc: `Revisión de IA registrada en ${code} (severidad ${rev.sev}${rev.estado === 'ok' ? ', sin observaciones' : ''})` });
+}
+function applyRev(code, revId, keys, reglaIdx, overrides = {}) {
+  const r = S.reqs[code]; if (!r) { toast('El requerimiento ya no existe.'); return false; }
+  const revs = clone(r.revisionesIA || []); const rv = revs.find(x => x.id === revId); if (!rv) { toast('La revisión ya no está disponible.'); return false; }
+  const vals = { ...rv.cambios, ...overrides };
+  if (!keys.length && !reglaIdx.length) { toast('Seleccione al menos un cambio.'); return false; }
+  const partial = {}; keys.filter(k => k !== 'macro' && k !== 'sub').forEach(k => partial[k] = vals[k]);
+  if (reglaIdx.length) { let ord = reglasList(r).reduce((a, x) => Math.max(a, x.order || 0), 0); partial.reglas = {}; reglaIdx.forEach(i => { const g = rv.reglasNuevas[i]; if (g) { ord += 10; partial.reglas[uid('g')] = { ...normRegla(g), order: ord }; } }); }
+  const names = keys.map(k => VFIELDS.find(f => f[0] === k)[1]).concat(reglaIdx.length ? [`${reglaIdx.length} regla(s) nueva(s)`] : []).join(', ');
+  const totalSug = Object.keys(rv.cambios).length + rv.reglasNuevas.length;
+  rv.estado = (keys.length + reglaIdx.length) >= totalSug ? 'aplicada' : 'parcial'; rv.aplicados = keys; rv.reglasAplicadas = reglaIdx; rv.decididoPor = S.me || ''; rv.decididoAt = nowIso();
+  if (Object.keys(overrides).length) rv.editados = Object.keys(overrides).filter(k => keys.includes(k) && overrides[k] !== rv.cambios[k]);
+  partial.revisionesIA = revs;
+  partial.historial = [...clone(r.historial || []), { at: nowIso(), by: S.me || '', tipo: 'ia', texto: `Recomendación de IA aplicada (severidad ${rv.sev}): ${names}` }];
+  queueWrite('reqs', code, partial, { now: true, desc: `Aplicó recomendación de IA en ${code}: ${names}` });
+  if (keys.includes('macro') || keys.includes('sub')) moveReq(code, 'both', { macro: keys.includes('macro') ? vals.macro : r.macro, sub: keys.includes('sub') ? vals.sub : (keys.includes('macro') ? '' : r.sub) }, 'por recomendación de IA');
+  return true;
+}
+function discardRev(code, revId) {
+  const r = S.reqs[code]; if (!r) return; const revs = clone(r.revisionesIA || []); const rv = revs.find(x => x.id === revId); if (!rv) return;
+  rv.estado = 'descartada'; rv.decididoPor = S.me || ''; rv.decididoAt = nowIso();
+  queueWrite('reqs', code, { revisionesIA: revs }, { now: true, desc: `Descartó la recomendación de IA en ${code}` });
+}
+function undoDiscard(code, revId) { const r = S.reqs[code]; if (!r) return; const revs = clone(r.revisionesIA || []); const rv = revs.find(x => x.id === revId); if (!rv) return; rv.estado = 'pendiente'; delete rv.decididoPor; delete rv.decididoAt; queueWrite('reqs', code, { revisionesIA: revs }, { now: true, desc: `Reabrió la recomendación de IA en ${code}` }); }
+
+/* ---------- Vista de la revisión al final del requerimiento ---------- */
+const sevPill = s => `<span class="pill ${s === 'OK' ? 'e-Borrador' : 'p-' + s}">${s === 'OK' ? 'Sin observaciones' : 'Severidad ' + esc(s)}</span>`;
+const estPill = e => `<span class="pill ${e === 'aplicada' ? 'e-Aprobado' : e === 'parcial' ? 'e-Validado' : e === 'descartada' ? 'e-Descartado' : e === 'ok' ? 'e-Borrador' : 'p-Media'}">${esc(REV_EST[e] || e)}</span>`;
+function revDiff(code, rv, editable) {
+  const r = S.reqs[code] || {}; const ks = Object.keys(rv.cambios || {}); const pend = rv.estado === 'pendiente';
+  const disp = (k, v) => k === 'macro' ? mLabel(v) : k === 'sub' ? sLabel(v) : v;
+  let h = '';
+  if (ks.length) h += `<table class="t diff"><thead><tr>${pend ? '<th style="width:28px"></th>' : '<th style="width:28px"></th>'}<th style="width:120px">Campo</th><th>${pend ? 'Actual' : 'Valor al revisar'}</th><th>Sugerido${pend && editable ? ' (editable)' : ''}</th></tr></thead><tbody>${ks.map(k => { const ap = (rv.aplicados || []).includes(k); return `<tr><td>${pend ? `<input type="checkbox" data-rvsel="${k}" checked>` : (ap ? '✓' : '—')}</td><td><b>${esc(VFIELDS.find(f => f[0] === k)[1])}</b></td><td class="old">${pend ? (esc(disp(k, r[k] || '')) || '<i>vacío</i>') : (rv.antes ? (esc(disp(k, rv.antes[k] || '')) || '<i>vacío</i>') : '<i>ver bitácora</i>')}</td><td>${pend && editable && !['macro', 'sub', 'tipo', 'prioridad', 'oblig'].includes(k) ? `<textarea data-rvf="${k}" style="border:1px solid var(--line);background:#fff">${esc(rv.cambios[k])}</textarea>` : `<b>${esc(disp(k, rv.cambios[k]))}</b>`}</td></tr>`; }).join('')}</tbody></table>`;
+  if ((rv.reglasNuevas || []).length) h += `<div style="margin-top:6px"><b style="font-size:12.5px;color:var(--blue)">Reglas sugeridas</b>${rv.reglasNuevas.map((g, i) => { const ap = (rv.reglasAplicadas || []).includes(i); return `<div class="rgsug">${pend ? `<input type="checkbox" data-rvreg="${i}" checked>` : (ap ? '✓' : '—')} <b>${esc(g.elemento)}</b> <span class="pill e-Borrador">${esc(g.tipo)}</span>${g.condicion ? ` · <i>Si:</i> ${esc(g.condicion)}` : ''}${g.accion ? ` · ${esc(g.accion)}` : ''}${g.motivo ? `<div class="hm">${esc(g.motivo)}</div>` : ''}</div>`; }).join('')}</div>`;
+  return h;
+}
+function vRevision(id, r) {
+  const revs = r.revisionesIA || []; const rv = revs[0];
+  const btn = SAMPLE && S.canWrite ? `<button class="btn ai sm" data-revone="${esc(id)}">✦ ${rv ? 'Revisar de nuevo' : 'Revisar este requerimiento'} con IA</button>` : '';
+  if (!rv) return `<details class="rgbox" open><summary>Revisión de IA</summary><p class="hint">Aún no tiene revisión. Puede revisarlo aquí o en lote con «Validar con IA» en el catálogo.${SAMPLE ? '' : ' (La IA no está configurada en el servidor.)'}</p><div id="revStatus" class="aistatus"></div>${btn}</details>`;
+  const pend = rv.estado === 'pendiente';
+  return `<details class="rgbox" open><summary>Revisión de IA ${sevPill(rv.sev)} ${estPill(rv.estado)}</summary>
+    <div class="hm" style="margin:4px 0 8px">Revisado el ${esc(fmtDate(rv.at))}${rv.by ? ' por ' + esc(who(rv.by)) : ''}${rv.decididoAt ? ` · decidido el ${esc(fmtDate(rv.decididoAt))}${rv.decididoPor ? ' por ' + esc(who(rv.decididoPor)) : ''}` : ''}</div>
+    ${rv.hallazgos.length ? `<ul class="hall">${rv.hallazgos.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+    ${rv.just ? `<p class="hint" style="font-style:normal">${esc(rv.just)}</p>` : ''}
+    <div data-revbox="${esc(rv.id)}">${revDiff(id, rv, true)}</div>
+    <div class="row" style="margin-top:8px">${pend && S.canWrite ? `<button class="btn sm" data-revapply="${esc(rv.id)}">Aplicar seleccionados</button><button class="btn ghost sm" data-revdisc="${esc(rv.id)}">Descartar</button>` : ''}${rv.estado === 'descartada' && S.canWrite ? `<button class="btn ghost sm" data-revundo="${esc(rv.id)}">Reabrir</button>` : ''}<span style="flex:1"></span>${btn}</div>
+    <div id="revStatus" class="aistatus"></div>
+    ${revs.length > 1 ? `<details style="margin-top:6px"><summary class="hm" style="cursor:pointer">Revisiones anteriores (${revs.length - 1})</summary>${revs.slice(1).map(x => `<div class="hi" style="margin-top:6px">${sevPill(x.sev)}${estPill(x.estado)}<div><div class="hm">${esc(fmtDate(x.at))}${x.by ? ' · ' + esc(who(x.by)) : ''}</div>${x.hallazgos.length ? `<div style="font-size:12.5px">${x.hallazgos.map(esc).join(' · ')}</div>` : ''}</div></div>`).join('')}</details>` : ''}
+  </details>`;
+}
+function revSelection(box) { return { keys: $$('[data-rvsel]', box).filter(c => c.checked).map(c => c.dataset.rvsel), reglas: $$('[data-rvreg]', box).filter(c => c.checked).map(c => +c.dataset.rvreg), overrides: Object.fromEntries($$('[data-rvf]', box).map(t => [t.dataset.rvf, t.value])) }; }
+async function reviewOne(code) {
+  const r = S.reqs[code]; if (!r || !SAMPLE) return; const st = $('#revStatus');
+  if (st) st.innerHTML = '<span class="spin"></span> Revisando con IA… (puede tardar hasta un minuto)';
+  const ctl = S.aiCtl = new AbortController(); let got = null;
+  const lp = lineParser(o => { if (o.code === code) got = o; });
+  try { await SAMPLE(avPrompt([{ ...r, code }]), { onText: lp.push, signal: ctl.signal, modelTier: 'default', cache: false }); lp.end(); }
+  catch (e) { lp.end(); if ($('#revStatus')) $('#revStatus').textContent = aiErr(e); S.aiCtl = null; return; }
+  S.aiCtl = null;
+  if (!got) { if ($('#revStatus')) $('#revStatus').textContent = 'La IA no devolvió una revisión válida. Intente de nuevo.'; return; }
+  saveReview(code, buildReview(got, S.reqs[code])); if (S.drawerReq === code) renderDrawer(); toast('Revisión guardada en ' + code + '.');
+}
+function drawerRevClick(t) {
+  const id = S.drawerReq; const ds = t.dataset;
+  if (ds.addregla) { addRegla(id); return true; }
+  if (ds.delregla) { delRegla(id, ds.delregla); return true; }
+  if (ds.revone) { reviewOne(ds.revone); return true; }
+  if (ds.revapply) { const box = $(`[data-revbox="${CSS.escape(ds.revapply)}"]`); const s = revSelection(box); if (applyRev(id, ds.revapply, s.keys, s.reglas, s.overrides)) { renderDrawer(); toast('Cambios aplicados.'); } return true; }
+  if (ds.revdisc) { discardRev(id, ds.revdisc); renderDrawer(); return true; }
+  if (ds.revundo) { undoDiscard(id, ds.revundo); renderDrawer(); return true; }
+  return false;
 }
 
 /* ===================== Bitácora de movimientos ===================== */
